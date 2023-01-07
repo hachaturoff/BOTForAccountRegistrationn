@@ -1,0 +1,89 @@
+body {
+
+}
+#wrapper {
+    display: grid;
+}
+
+#wrapper .zone1{
+    margin: 10px;
+    padding: 10px;
+    border: #865e5e solid 1px;
+    height: 200px;
+}
+
+#wrapper .zone2{
+    margin: 10px;
+    padding: 10px;
+    border: #567959 solid 1px;
+    height: 200px;
+}
+
+.box {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: crimson;
+}
+
+/*http://codeharmony.ru/materials/42*/
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* скрываем дефолтный флажок */
+.container .check-highload {
+    position: absolute;
+    opacity: 0;
+}
+/* Создаем кастомный checkbox */
+.highload2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 6px;
+}
+/* При наведении указателя мыши перекрашиваем */
+.container:hover .check-highload ~ .highload2 {
+    background-color: #ccc;
+    border-radius: 6px;
+}
+/* Когда отмечен, то красим в зеленый цвет */
+.container .check-highload:checked ~ .highload2 {
+    background-color: #FFC24D;
+    border-radius: 6px;
+    padding-left: 2px;
+    padding-bottom: 3px;
+}
+/* Создаем когда отмечено (не видно, когда не отмечено) */
+.highload2:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Показываем когда отмечен */
+.container .check-highload:checked ~ .highload2:after {
+    display: block;
+}
+/* Стили индикатора */
+.container .highload2:after {
+    left: 8px;
+    top: 4px;
+    width: 8px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
