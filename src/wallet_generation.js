@@ -1,3 +1,11 @@
+// Source: https://web3js.readthedocs.io/en/v1.2.0/web3-eth-accounts.html, https://medium.com/@harshagoli/so-you-want-to-build-an-ethereum-hd-wallet-cb2b7d7e4998
+// 1. Step: run `npm i web3`
+// 2. Step: run `npm i bip39`
+// 3. Step: run `npm i ethereumjs-util`
+// 4. Step: run `npm i hdkey`
+// 5. Step: run `node wallet_generation.js`
+// For mobile, we can use Infura APIs or our own node.
+
 var Web3 = require('web3');
 var bip39 = require('bip39');
 var HDKey = require('hdkey');
