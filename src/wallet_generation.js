@@ -28,3 +28,28 @@ const addrNode = root.derive("m/44'/60'/0'/0/0"); //line 1
 const pubKey = ethUtil.privateToPublic(addrNode._privateKey);
 const addr = ethUtil.publicToAddress(pubKey).toString('hex');
 console.log("0x" + addr);
+
+// function getAderessEth() {
+//
+//   const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+//   const wallet = web3.eth.accounts.create(web3.utils.randomHex(32));
+//
+//   // console.log(wallet);
+//
+//
+//   const mnemonic = bip39.generateMnemonic();
+//   // console.log(mnemonic);
+//   const seed = bip39.mnemonicToSeedSync(mnemonic).toString('hex');
+//   const root = HDKey.fromMasterSeed(seed);
+//   const masterPrivateKey = root.privateKey.toString('hex');
+//   // console.log(masterPrivateKey);
+//
+//   const addrNode = root.derive("m/44'/60'/0'/0/0"); //line 1
+//   const pubKey = ethUtil.privateToPublic(addrNode._privateKey);
+//   const addr = ethUtil.publicToAddress(pubKey).toString('hex');
+//
+//   // return "0x" + addr
+//   console.log("0x" + addr)
+// }
+//
+// getAderessEth()
