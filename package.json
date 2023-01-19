@@ -8,12 +8,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.29.1"
+    "@playwright/test": "^1.29.2"
   },
   "dependencies": {
     "bip39": "^3.0.4",
     "ethereumjs-util": "^7.1.5",
     "hdkey": "^2.0.1",
+    "playwright": "^1.29.2",
     "puppeteer": "^19.4.1",
     "web3": "^1.8.1"
   }

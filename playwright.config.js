@@ -1,5 +1,8 @@
 // @ts-check
 const { devices } = require('@playwright/test');
+// const { chromium } = require('playwright');
+
+
 
 /**
  * Read environment variables from file.
@@ -13,15 +16,15 @@ const { devices } = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  testDir: './toshiesWhitelist',
+  testDir: './sovereignty',
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 35 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 500000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -35,6 +38,9 @@ const config = {
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    headless: false,
+    // viewport: { width: 720, height: 720 },
+    ignoreHTTPSErrors: true,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -42,16 +48,24 @@ const config = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+
   },
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: {
-    //     ...devices['Desktop Chrome'],
-    //   },
-    // },
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome', `--no-incognito`],
+        headless: false,
+        // viewport: { width: 720, height: 720 },
+        ignoreHTTPSErrors: true,
+        flag: '--no-incognito',
+        args: [
+          `--no-incognito`,
+        ],
+      },
+    },
 
     // {
     //   name: 'firefox',
@@ -90,12 +104,20 @@ const config = {
     //   },
     // },
 
-    {
-      name: 'Google Chrome',
-      use: {
-        channel: 'chrome',
-      },
-    },
+    // {
+    //   name: 'Google Chrome',
+    //   use: {
+    //     channel: 'chrome',
+    //     headless: false,
+    //     viewport: { width: 720, height: 720 },
+    //     ignoreHTTPSErrors: true,
+    //     actionTimeout: 0,
+    //     trace: 'on-first-retry',
+    //     args: [
+    //       `--no-incognito`,
+    //     ],
+    //   },
+    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
