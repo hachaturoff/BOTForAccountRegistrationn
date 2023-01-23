@@ -10,38 +10,58 @@ let st = ['@justinsuntron', '@HEjustinsun', '@sunyuchentron', '@TRONDAO', '@BitT
 
 let BD = []
 
-test('New test ', async ({ page }) => {
+// test('New test ', async ({ page }) => {
+//
+//   for (let i = 1; i < arr.length; i++) {
+//
+//     if (i % 10 === 0) {
+//
+//       console.log('Ждём пять минут')
+//       await page.waitForTimeout(300000)
+//       console.log('Поехали')
+//
+//     } else {
+//
+//       await page.goto('https://toshies.xyz/whitelist/')
+//       await page.type('#address' , arr2[i])
+//       await page.type('#email' , arr[i])
+//       await page.type('#twitter' , st[i])
+//       await page.type('#language' , 'English')
+//
+//       await page.click('#__next > main > div:nth-child(2) > main > div > main > div > div > main > div > form > p:nth-child(7) > button')
+//
+//       let akk = {mail: arr[i], adress : arr2[i], twitter: st[i]}
+//
+//       BD.push(akk)
+//       console.log(i)
+//
+//       await page.waitForSelector('#__next > main > div:nth-child(2) > main > div > main > div > div > main > div.OfficialWhitelist_success__asIx0')
+//
+//     }
+//   }
+//
+//   fs.writeFileSync('toshiesData.txt', JSON.stringify(BD), 'utf-8');
+//
+// });
 
-  for (let i = 1; i < arr.length; i++) {
 
-    if (i % 10 === 0) {
+test('check  toshies whitekist', async ({ page }) => {
 
-      console.log('Ждём пять минут')
-      await page.waitForTimeout(300000)
-      console.log('Поехали')
 
-    } else {
+     for (let i = 462; i < arr2.length; i++) {
+       await page.goto('https://toshies.xyz/checker')
+       await page.type('#__next > main > div:nth-child(2) > section > div.Checker_card__HsB89 > div.Checker_form__668UZ > label > input' , arr2[i])
+       await page.click('#__next > main > div:nth-child(2) > section > div.Checker_card__HsB89 > div.Checker_form__668UZ > button')
+       await page.waitForSelector('#__next > main > div:nth-child(2) > section > div.Checker_card__HsB89 > div.Checker_result__2Sl1b > div > h5')
 
-      await page.goto('https://toshies.xyz/whitelist/')
-      await page.type('#address' , arr2[i])
-      await page.type('#email' , arr[i])
-      await page.type('#twitter' , st[i])
-      await page.type('#language' , 'English')
+       console.log(i)
 
-      await page.click('#__next > main > div:nth-child(2) > main > div > main > div > div > main > div > form > p:nth-child(7) > button')
 
-      let akk = {mail: arr[i], adress : arr2[i], twitter: st[i]}
+     }
 
-      BD.push(akk)
-      console.log(i)
 
-      await page.waitForSelector('#__next > main > div:nth-child(2) > main > div > main > div > div > main > div.OfficialWhitelist_success__asIx0')
-
-    }
-  }
-
-  fs.writeFileSync('toshiesData.txt', JSON.stringify(BD), 'utf-8');
 
 });
+
 
 
